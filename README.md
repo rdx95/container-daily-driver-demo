@@ -20,34 +20,43 @@ Client -> FastAPI -> MinIO (S3)
 
 Verify:
 
+```
 docker --version  
 docker compose version
-
+```
 ---
 
 ## Clone Repository
 
-git clone https://github.com/your-org/container-daily-driver-demo.git  
+```
+git clone https://github.com/your-org/container-daily-driver-demo.git
+```
+
+```
 cd container-daily-driver-demo
+```
 
 ---
 
 ## Start Application
 
+```
 docker compose up --build
+```
 
 ---
 
 ## Verify
 
+```
 docker compose ps
-
+```
 You should see:
-
+```
 app running  
 mongo running  
 minio running  
-
+```
 ---
 
 ## Access
@@ -63,39 +72,42 @@ minioadmin / minioadmin
 
 ## Upload File
 
-Use POST /upload from Swagger UI
+Use `POST` /upload from Swagger UI
 
 ---
 
 ## Check Mongo
 
+```
 docker exec -it mongo mongosh -u myuser -p mypass
-
+```
+```
 use file_db  
 db.files.find()
-
+```
 ---
 
 ## Stop
-
+```
 docker compose down
-
+```
 Delete data:
-
+```
 docker compose down -v
-
+```
 ---
 
 ## Useful Commands
-
+```
 docker ps  
 docker compose logs app  
 docker compose exec app sh  
 docker volume ls  
 docker system prune  
-
+```
 ---
 
 One command runs everything:
-
+```
 docker compose up
+```
